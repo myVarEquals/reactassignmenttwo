@@ -22,11 +22,14 @@ class App extends Component {
   }
 
   removeLetter = (letterIndex) => {
+
+    const newInput = this.state.input.slice(0, letterIndex) + this.state.input.slice(letterIndex + 1);
     // console.log(this.state.textArray);
     const newTextArray = [...this.state.textArray];
     // console.log(newTextArray); 
     newTextArray.splice(letterIndex, 1); // remove this letter
     this.setState({ // update state
+      input: newInput,
       textArray: newTextArray
     });
   }
@@ -52,7 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         
-        <input type="text" onChange={this.handleInput}/>
+        <input type="text" onChange={this.handleInput} value={this.state.input}/>
         <p>{this.state.input}</p> {/* display input form text */}
         <Validation textLength={this.state.length} />
 

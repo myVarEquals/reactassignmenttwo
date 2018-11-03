@@ -39,7 +39,7 @@ class App extends Component {
         <div>
           { // map over each element in the text array
             this.state.textArray.map((curr, index) => {
-              // return a char comp for each letter, execute on click remove letter func, pass index as ket and arg
+              // return a char comp for each letter, execute on click (NOT during rendering) remove letter func, pass index as key and arg
               // index as key not best practice but it works in a small case such as this
               return <Character myLetter={curr} click={() => this.removeLetter(index)} key={index}/>
             })
